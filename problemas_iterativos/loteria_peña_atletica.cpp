@@ -2,57 +2,40 @@
 
 using namespace std;
 
-// Ejercicio 219 Erasmus
-// Resuelto en la funcion erasmus(int v[], int n)
+// Ejercicio 219 Loteria Peña Atletica
+// Resuelto en la funcion resuelve()
 
 int v[100000]; 
 
 // { Pre: 0 <= n <= longitud(v) }
-long loteria_atlelitca(int v[], int n) /* return ret */
-{
-    long ret = 0;
-    int i = 0;
-    while (i < n)
-    {
-        if (v[i] % 2 == 0)
-        {
-            ++ret;
-        }
-        ++i;
-    }
-    return ret;
-}
+
 // { Post: ret = #i : 0 <= i < n ; v[i] % 2 = 0}
 
 bool resuelve()
 {
-    // 1. Lectura
+    int i = 0;
+    int ret = 0;
     int n;
     cin >> n;
-    if (n == 0)
-    {
-        return false;
-    }
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n; ++i)
     {
         cin >> v[i];
+        if(v[i] % 2 == 0)
+            ++ret;
     }
-
-    // 2. Calculo
-    long long ret = loteria_atlelitca(v, n);
-
-    // 3. Escribir el resultado
     cout << ret << endl;
     return true;
 }
 
 int main(int argc, char const *argv[])
 {
-    while (resuelve())
+    int casos;
+    cin >> casos;
+    for (int i = 0; i < casos; ++i)
     {
-        ;
+        resuelve();
     }
-
+    
     return 0;
 }
