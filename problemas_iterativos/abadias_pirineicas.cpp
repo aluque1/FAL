@@ -10,6 +10,7 @@ int v[100000];
 /*
     Contador
 */
+
 int abadias_pirineicas(int n, int v[])
 {
     
