@@ -7,36 +7,45 @@ using namespace std;
 
 int v[10000];
 
+void entrando_al_cine(int v[], int n)
+{
+    int i = 0;
+    int num_par = 0;
+    bool tramo_impar = false;
+    bool tramo_par = true;
+
+    while (i < n)
+    {
+        if (tramo_par && (v[i] % 2 != 0))
+        {
+            tramo_par = false;
+            tramo_impar = true;
+        }
+        else
+            ++num_par;
+        ++i;
+    }
+    if (i == n) // esto es igual que decir que es correct ya que ha recorrido todo el vector
+        cout << "SI " << num_par << endl;
+    else
+        cout << "NO" << endl;
+}
+
 // { Pre : 0 <= n <= longitud(v) }
 void resuelve() /* return ret */
 {
     int num_personas;
-    int i = 0;
-    string ret = "SI";
-    bool correct = true;
-    bool tramo_impar = false;
-    bool tramo_par = true;
 
     cin >> num_personas;
 
-    while ((i < num_personas) && correct)
+    for (int i = 0; i < num_personas; i++)
     {
         cin >> v[i];
-        if (tramo_par &&(v[i] % 2 != 0)){
-            tramo_par = false;
-            tramo_impar = true;
-        }
-
-        if (tramo_impar && (v[1] % 2 == 0))
-        {
-            correct = false;
-            ret = "NO";
-        }
-        ++i;
     }
-    cout << ret << endl;
-}
+    entrando_al_cine(v, num_personas);
 
+    
+}
 // { Post: ret = Ex. k : (0 <= k < n)
 //                     : todosPares(v, 0, k) ^
 //                       todosImpares(v, k, n)
