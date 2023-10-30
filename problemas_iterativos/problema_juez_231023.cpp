@@ -5,7 +5,11 @@ using namespace std;
 
 int v[200000];
 
-long long numParejas(int v[], int n, int k)
+
+/**
+ * 0 < n <= longitud(v) ^ ordenado(v) 
+ */
+long long numParejas(int v[], int n, int k) /* return ret */
 {
     int b = n - 1;
     int a = b - 1;
@@ -26,13 +30,12 @@ long long numParejas(int v[], int n, int k)
         }
         else
             --a;
-        /**
-         * En el primer caso de prueba me da uno mas
-         */
     }
-
     return parejas;
 }
+/**
+ * ret = # i,j : 0 <=i < j < n : v[i] + v[j] <= k  
+ */
 
 int main()
 {
