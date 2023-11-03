@@ -1,4 +1,4 @@
-#include <iostream>
+     #include <iostream>
 
 using namespace std;
 
@@ -10,14 +10,22 @@ using namespace std;
  */
 bool polidivisible(int n, bool polidiv)
 {
-    
+    if(n < 10)
+        return polidiv;
+    else
+    {
+        if (n % to_string(n).length() != 0)
+            polidiv = false;
+            
+        return polidivisible(n / 10, polidiv);
+    }
 }
 
 int main(int argc, char const *argv[])
 {
     int n;
     bool polidiv = true;
-    while ((cin >> n) && n)
+    while ((cin >> n))
     {
         if (polidivisible(n, polidiv))
             cout << "POLIDIVISIBLE" << '\n';
