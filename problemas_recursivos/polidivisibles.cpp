@@ -25,7 +25,7 @@ int main(int argc, char const *argv[])
 {
     int n;
     bool polidiv = true;
-    while ((cin >> n))
+    while ((cin >> n) && n)
     {
         if (polidivisible(n, polidiv))
             cout << "POLIDIVISIBLE" << '\n';
