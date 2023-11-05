@@ -2,10 +2,10 @@
 
 using namespace std;
 
-// problema 167 pintando fractales
-// resuelto en la funcion fractales(int n)
+// Problema 167 - Pintando fractales
+// Resuelto en la funcion fractales(int l)
 
-long long fractales(int l) // Me da TLE
+long long fractales(int l)
 {
     long long l_total = 0;
     if (l <= 1)

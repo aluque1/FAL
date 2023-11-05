@@ -2,8 +2,8 @@
 
 using namespace std;
 
-// problema 140 Suma de dijitos
-// resuelto en la funcion suma(int n)
+// Problema 140 - Suma de dijitos
+// Resuelto en la funcion suma(int n)
 
 int suma(int n)
 {
