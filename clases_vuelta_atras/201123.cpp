@@ -71,7 +71,7 @@ bool noAtaca(int solucion[], int ultimaColocada)
     {
         if (solucion[ultimaColocada] == solucion[i]) // comprueba si esta en la misma fila
             return false;
-        if (abs(solucion[ultimaColocada] - solucion[i]) == abs(ultimaColocada - i))
+        if (abs(solucion[ultimaColocada] - solucion[i]) == abs(ultimaColocada - i)) // comprueba si esta en la misma diagonal
             return false;
     }
     return true;
@@ -79,7 +79,7 @@ bool noAtaca(int solucion[], int ultimaColocada)
 
 void nReinas(
     /* Desc problema */
-    int n,
+    int n, // numero de reinas
     /* Datos Solucion Parcial */
     int solParcial[],
     int k)
@@ -112,7 +112,7 @@ int nReinasCuentaConfuguraciones(
     int ret = 0;
     for (int y = 0; y < n; ++y)
     {
-        solParcial[k] == y;
+        solParcial[k] = y;
         if (noAtaca(solParcial, k))
             ret += nReinasCuentaConfuguraciones(n, solParcial, k + 1);
     }
