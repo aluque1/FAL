@@ -3,38 +3,47 @@
 using namespace std;
 
 // Ejercicio 222 Serie de potencias
-// Resuelto en la funcion serie_potencias()
+// Resuelto en la funcion serie_potencias(in x, int a)
 
-/* Pre : {x >= 0 AND a >= 0} */
-/* Complejidad O(n) donde es lineal en respecto a int a */
+/* Post : {ret = sumaAcu : P.t. i : 0 <= i <= a : x^0 + x^1 + ... + x^i} */
 
-bool caso_de_prueba()
+#include <iostream>
+using namespace std;
+
+int serie_potencias(int x, int a) // TLE
 {
-  int i = 0;
   int sumaAcu = 0;
   int potenciaAcu = 1;
+  for (int i = 0; i <= a; ++i)
+  {
+    sumaAcu += potenciaAcu;
+    potenciaAcu *= x;
+  }
+  return sumaAcu % 1000007;
+}
+
+bool casoDePrueba()
+{
+  // leer el inicio del caso de prueba (cin)
   if (!cin)
     return false;
   else
   {
+    // leer los datos del caso de prueba
     int x, a;
     cin >> x >> a;
-    while (i <= a)
-    {
-      sumaAcu += potenciaAcu;
-      potenciaAcu *= x;
-      i++;
-    }
-    cout << sumaAcu % 1000007 << "\n";
+    int sol = serie_potencias(x, a);
+    cout << sol << "\n";
     return true;
   }
 }
-/* Post : {ret = sumaAcu : P.t. i : 0 <= i <= a : x^0 + x^1 + ... + x^i} */
 
 int main()
 {
-  while (caso_de_prueba())
+
+  while (casoDePrueba())
   {
   }
+
   return 0;
 }
