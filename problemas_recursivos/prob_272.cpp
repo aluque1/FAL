@@ -5,6 +5,7 @@ using namespace std;
 // Problema 272 - Tres dedos en cada mano
 // Resuelto en la funcion base6(int n)
 
+/* Pre : { 0 <= n <= 10^9 } */
 int base6(int n)
 {
     int base6_ans = 0;
@@ -15,6 +16,16 @@ int base6(int n)
 
     return base6_ans;
 }
+/* 
+    Complejidad 
+    Disminucion del tam del problema por division
+    - a = 1
+    - b = 6
+    - k = 0
+
+    T(n) = O(n^k * log n) = O(log n) 
+*/
+/* Post :  */
 
 int main(int argc, char const *argv[])
 {

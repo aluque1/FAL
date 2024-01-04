@@ -5,6 +5,7 @@ using namespace std;
 // Problema 237 - Polidivisibles
 // Resuelto en la funcion polidivisible(long long n, bool polidiv, int length)
 
+/* Pre : { 0 <= n <= 10^18 } */
 bool polidivisible(long long n, bool polidiv, int length)
 {
     if (n < 10)
@@ -17,6 +18,18 @@ bool polidivisible(long long n, bool polidiv, int length)
         return polidivisible(n / 10, polidiv, length - 1);
     }
 }
+/* 
+    Complejidad
+    Disminucion del tam del problema por division
+
+    - a = 1
+    - b = 10
+    - k = 0
+
+    T(n) = O(n^k * log n) = O(log n)
+*/
+
+/*  Post : { ret = true sii n es polidivisible } */
 
 int main(int argc, char const *argv[])
 {
