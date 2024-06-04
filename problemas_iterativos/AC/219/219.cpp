@@ -7,13 +7,13 @@ using namespace std;
 
 int v[100000]; 
 
-// { Pre: 0 <= n <= longitud(v) }
-
-// { Post: ret = #i : 0 <= i < n ; v[i] % 2 = 0}
-
+/* 
+    { Pre: 0 <= n <= longitud(v) < 10001}
+    { Post: ret = #i : 0 <= i < n ; v[i] % 2 = 0 }
+    { Coste: O(n) siendo n el numero de elementos de la lista }
+*/
 bool resuelve()
 {
-    int i = 0;
     int ret = 0;
     int n;
     cin >> n;

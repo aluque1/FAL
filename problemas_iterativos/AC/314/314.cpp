@@ -3,31 +3,17 @@
 using namespace std;
 
 // Ejercicio 314 Temperaturas extremas
-// Resuelto en la funcion temperaturas_extremas(int v[], int n)
+// Resuelto en la funcion resuelve()
 
 int v[10000];
 
-// { Pre : 0 <= n <= longitud(v) }
-void temperaturas_extremas(int v[], int n) /* return ret */
-{
-    int i = 1;
-    int num_picos = 0;  
-    int num_valles = 0;
-    while (i < n - 1)
-    {
-        if((v[i - 1] < v[i]) && (v[i] > v[i + 1]))
-            ++num_picos;
-        if((v[i - 1] > v[i]) && (v[i] < v[i + 1]))
-            ++num_valles;
-
-        ++i;
+/*  
+    { Pre : 0 <= n <= longitud(v) < 10001}
+    { Post : ret = # p, v : #p = sum i : 1 <= i < n - 1 : v[i - 1] < v[i] > v[i + 1] ^
+                            #v = sum i : 1 <= i < n - 1 : v[i - 1] > v[i] < v[i + 1]
     }
-    cout << num_picos << " " << num_valles << endl;
-}
-// { Post : ret = # i, j : 0 < i , j < n - 1 :
-//          v[i - 1] < v[i] > v[i + 1] ^
-//          v[j - 1] > v[j] < v[j + 1]}
-
+    { Coste : O(n) siendo n el numero de elementos de la lista }
+*/
 void resuelve()
 {
     int n;
@@ -38,8 +24,21 @@ void resuelve()
         cin >> v[i];
     }
 
-    temperaturas_extremas(v, n);
+    int i = 1;
+    int num_picos = 0;
+    int num_valles = 0;
+
+    while (i < n - 1)
+    {
+        if((v[i - 1] < v[i]) && (v[i] > v[i + 1]))
+            ++num_picos;
+        if((v[i - 1] > v[i]) && (v[i] < v[i + 1]))
+            ++num_valles;
+        ++i;
+    }
+    cout << num_picos << " " << num_valles << endl;
 }
+
 
 int main(int argc, char const *argv[])
 {
