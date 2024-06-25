@@ -5,7 +5,17 @@ using namespace std;
 // Problema 140 - Suma de dijitos
 // Resuelto en la funcion suma(int n)
 
-/* Pre : { 0 <= n , 10^9 } */
+/* 
+    Pre : { 0 <= n , 10^9 }
+    Complejidad :
+    Disminucion del tam del problema por division =>
+    - a = 1
+    - b = 10
+    - k = 0
+
+    T(n) = O(n^k * log n) = O(log n)
+    Post : { ret = sum i : 0 <= i < n : n%10 }
+     */
 int suma(int n) /* return ret */
 {
     int sum = 0;
@@ -23,18 +33,6 @@ int suma(int n) /* return ret */
     cout << n % 10;
     return sum;
 }
-
-/*  
-    Complejidad
-    Disminucion del tam del problema por division =>
-    - a = 1
-    - b = 10
-    - k = 0
-
-    T(n) = O(n^k * log n) = O(log n)
-*/
-
-/* Post : { ret = sum i : 0 <= i < n : n%10 } */
 
 int main(int argc, char const *argv[])
 {
