@@ -32,4 +32,6 @@
 *.app
 
 # apuntes/ folder
-apuntes/
+cuadernos/
+transparencias/
+*.ans
