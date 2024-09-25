@@ -7,22 +7,6 @@ using namespace std;
 
 void resuelveCaso()
 {
-  int numElems;
-  cin >> numElems;
-
-  vector<string> v(numElems);
-
-  for (string &i : v)
-    cin >> i;
-
-  string min = v[0];
-
-  for(int i = 1; i < numElems; ++i){
-    if(min > v[i])
-      min = v[i];
-  }
-
-  cout << min << '\n';
 }
 
 int main()
