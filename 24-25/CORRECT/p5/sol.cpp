@@ -9,18 +9,25 @@
 using namespace std;
 
 // función que resuelve el problema
-bool resolver(vector<int> const &v, int desnivel)
+bool resolver(vector<int> const &v, int const &desnivel)
 {
-    bool apta = true;
-    int desnivelAcum = 0;
-    int prev = v[0];
-    for (int i = 1; i < v.size(); ++i)
+    bool posible = true;
+    int i = 0, j = 0;
+
+    while (j < v.size() - 1 && posible)
     {
-        if (v[i] > prev)
+        if (v[j + 1] > v[j]) // Si el j + 1 es mayor al anterior, increntamos j
+            ++j;
+        else
         {
-            desnivelAcum += (v[i] - prev);
+            if (i == j) // Si i y j estan en el mismo punto, incrementamos j
+                ++j;
+            ++i; // Incrementamos i
         }
+        if (v[j] - v[i] > desnivel) // Si el la diferencia de los puntos es mayor al desnivel permitido => false
+            posible = false;
     }
+    return posible;
 }
 
 // Resuelve un caso de prueba, leyendo de la entrada la
@@ -29,7 +36,7 @@ bool resuelveCaso()
 {
     // leer los datos de la entrada
     int desnivel, numElems;
-    cin >> desnivel, numElems;
+    cin >> desnivel >> numElems;
 
     if (!std::cin)
         return false;
@@ -39,10 +46,10 @@ bool resuelveCaso()
     for (int &elem : v)
         cin >> elem;
 
-    bool sol = resolver(v);
+    bool sol = resolver(v, desnivel);
 
     // escribir sol
-    cout << (sol ? "APTO\n" : "NO APTO\n");
+    cout << (sol ? "APTA\n" : "NO APTA\n");
 
     return true;
 }
@@ -62,7 +69,7 @@ int main()
         // Para restablecer entrada. Comentar para acepta el reto
 #ifndef DOMJUDGE // para dejar todo como estaba al principio
     std::cin.rdbuf(cinbuf);
-    system("PAUSE");
+    // system("PAUSE");
 #endif
 
     return 0;

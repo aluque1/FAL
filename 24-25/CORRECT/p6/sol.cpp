@@ -9,19 +9,22 @@
 using namespace std;
 
 // función que resuelve el problema
-int resolver(vector<long long int> &v, int numErroneo) // no lo pasamos como const ya que lo modificamos
+long resolver(vector<int> const &v, int &numMinimos)
 {
-  int val = 0; /* Nuevo indice que vamos a usar, no se actualiza cuando encontramos un valor erroneo => proximo recorrido reescribimos
-              el siguiente numero en la posicion del erroneo */
-  for(int i = 0; i < v.size(); ++i){
-    if(v[i] != numErroneo)  {
-      v[val] = v[i];
-      ++val;
+  long sumaTotal = v[0], valorMin = v[0];
+  for (int i = 1; i < v.size(); ++i)
+  {
+    sumaTotal += v[i];
+
+    if (v[i] == valorMin)
+      ++numMinimos;
+    else if (v[i] < valorMin)
+    {
+      numMinimos = 1;
+      valorMin = v[i];
     }
   }
-
-  v.resize(val);
-  return v.size();
+  return sumaTotal - (valorMin * numMinimos);
 }
 
 // Resuelve un caso de prueba, leyendo de la entrada la
@@ -29,22 +32,17 @@ int resolver(vector<long long int> &v, int numErroneo) // no lo pasamos como con
 void resuelveCaso()
 {
   // leer los datos de la entrada
-  int numElems; int numErroneo;
+  int numElems, numMinimos = 1;
+  cin >> numElems;
 
-  cin >> numElems >> numErroneo;
-
-  vector<long long int> v(numElems);
-
-  for (long long int &elem : v)
+  vector<int> v(numElems);
+  for (int &elem : v)
     cin >> elem;
 
-  int sol = resolver(v, numErroneo);
+  long sol = resolver(v, numMinimos);
   // escribir sol
 
-  cout << sol << '\n';
-  for(int i = 0; i < v.size(); ++i)
-    cout << v[i] << " ";
-  cout << '\n';
+  cout << sol << ' ' << numElems - numMinimos << '\n';
 }
 
 int main()
@@ -64,7 +62,7 @@ int main()
     // Para restablecer entrada. Comentar para acepta el reto
 #ifndef DOMJUDGE // para dejar todo como estaba al principio
   std::cin.rdbuf(cinbuf);
-// system("PAUSE");
+  // system("PAUSE");
 #endif
 
   return 0;
