@@ -7,7 +7,6 @@
 #include <fstream>
 
 
-
 // función que resuelve el problema
 TipoSolucion resolver(TipoDatos datos) {
     
@@ -19,13 +18,12 @@ TipoSolucion resolver(TipoDatos datos) {
 bool resuelveCaso() {
     // leer los datos de la entrada
     
-    if (! std::cin)
+    if (caso == -1)
         return false;
     
     TipoSolucion sol = resolver(datos);
     
     // escribir sol
-    
     
     return true;
     

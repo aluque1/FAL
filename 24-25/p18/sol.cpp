@@ -5,8 +5,9 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <vector>
 
-
+using namespace std;
 
 // función que resuelve el problema
 TipoSolucion resolver(TipoDatos datos) {
@@ -16,18 +17,13 @@ TipoSolucion resolver(TipoDatos datos) {
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
-bool resuelveCaso() {
+void resuelveCaso() {
     // leer los datos de la entrada
     
-    if (! std::cin)
-        return false;
     
     TipoSolucion sol = resolver(datos);
-    
     // escribir sol
     
-    
-    return true;
     
 }
 
@@ -40,8 +36,10 @@ int main() {
      #endif 
     
     
-    while (resuelveCaso())
-        ;
+    int numCasos;
+    std::cin >> numCasos;
+    for (int i = 0; i < numCasos; ++i)
+        resuelveCaso();
 
     
     // Para restablecer entrada. Comentar para acepta el reto
