@@ -11,34 +11,22 @@ using namespace std;
 // función que resuelve el problema
 int resolver(vector<int> const &v, int const cant)
 {
-  int sumaAct = v[0], puntMax = v[0];
-  for (int i = 1; i < cant; ++i)
-  {
+  int sumaAct = v[0];
+  for(int i = 1; i < cant; ++i)
     sumaAct += v[i];
-    if (v[i] > puntMax)
-      puntMax = v[i];
-  }
+  
+  int sumaMax = sumaAct, pagIniAct = 0, pagIniMax = 0;
 
-  int sumaMax = sumaAct, pagIniMax = 0, pagIniAct = 0;
-  bool esMayor = false;
-  for (int i = cant; i < v.size(); ++i)
-  {
-    if (v[i] >= puntMax)
-    {
-      sumaAct -= v[pagIniAct];
-      ++pagIniAct;
-      sumaAct += v[i];
-      esMayor = true;
-    }
-    else 
-      esMayor = false;
-
-    if (sumaAct >= sumaMax && esMayor)
-    { // >= ya que queremos el mas avanzado => el ultimo
+  for(int i = cant; i < v.size(); ++i){
+    sumaAct -= v[pagIniAct];
+    ++pagIniAct;
+    sumaAct += v[i];
+    if(sumaAct >= sumaMax){ // >= ya que queremos el mas avanzado => el ultimo
       pagIniMax = pagIniAct;
       sumaMax = sumaAct;
     }
   }
+
   return pagIniMax;
 }
 
@@ -57,7 +45,7 @@ bool resuelveCaso()
     cin >> elem;
 
   int sol = resolver(v, cant);
-
+  
   // escribir sol
   cout << sol << '\n';
 
