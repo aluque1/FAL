@@ -14,19 +14,32 @@ int resolver(vector<int> const &v, int const k)
   /*  para la longitud k; calcular numero de intervalos de longitud k tal que la
   cantidad de valores positivos en la mitad izqe es mayor o igual que la caltidad de
   valores positivos en el lado derecho */
-
-  /* Tener 2 whiles, uno que compruebe cuantos valores positivos en el intervalo iz
-  y otro que compruebe cuantos valores positivos en el lado der */
-  int numIntervalos = 0;
-  while ()
-  {
+  int numIntervalos = 0, numPosDr = 0, numPosIz = 0;
+  for(int i = 0; i < k; ++i){
+    if(v[i] % 2 == 0)
+      ++numPosDr;
+  }
+  for(int j = k; j < v.size(); ++j){
+    if(v[j] % 2 == 0)
+      ++numPosIz;
   }
 
-  while (/* condition */)
-  {
-    /* code */
+  if(numPosDr >= numPosIz)
+    ++numIntervalos;
+  
+  int i = 1;
+  
+  while(i < v.size() - k){
+    if(v[i - 1] % 2 == 0) // Si el numero que hemos quitado del intervalo derecho era positivo
+      --numPosDr;
+    if(v[i] % 2 == 0) // Si el nuevo numero que metemos es positivo, el intervalo de la derecha se queda sin un numero positivo
+    {
+      ++numPosIz;
+      --numPosDr;
+    }
+    if(numPosDr >= numPosIz)
+    ++numIntervalos;
   }
-
   return numIntervalos;
 }
 
