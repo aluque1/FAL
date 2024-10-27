@@ -44,24 +44,21 @@ int resolver(vector<int> const &v, int const cant)
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
-bool resuelveCaso()
+// Resuelve cada caso de la entrada
+bool resuelveCaso() 
 {
-  // leer los datos de la entrada
-  int pag, cant;
-  cin >> pag >> cant;
-  if (pag == 0 && cant == 0)
-    return false;
+    int numElem, L;
+    std::cin >> numElem >> L;
+    if (numElem == 0 && L == 0) return false;
+    std::vector<int> v(numElem);
+    for (int &n : v) std::cin >> n;
+    
+    // LLamada a la funcion que resuelve el problema
+    int sol  = resolver(v, L);
+    // Escribir el resultado
+    cout << sol << '\n';
 
-  vector<int> v(pag);
-  for (int &elem : v)
-    cin >> elem;
-
-  int sol = resolver(v, cant);
-
-  // escribir sol
-  cout << sol << '\n';
-
-  return true;
+    return true;
 }
 
 int main()
