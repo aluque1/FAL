@@ -34,8 +34,18 @@
 | K-verdadros minimo |  [p29](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/iterativos/p29) |
 | Viajes a Marte |  [p30](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/iterativos/p30) |
 | Cintas de colores |  [p31](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/iterativos/p31) |
+| Aterrizaje de emergencia |  [p32](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/iterativos/p32) |
+
 
 ## Recursivos
+| Nombre       | Número | 
+|--------------|------|
+| Cálculo del máximo común divisor | [p33](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p33)  |
+| Números que suman lo mismo | [p34](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p34)  |
+| Jugando con los dígitos de un número |  [p35](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p35)  |
+| Transformar un número decimal a binario |  [p36](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p36)  |
+| Dígitos complementarios |  [p37](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p37)  |
+| Números interesantes |  [p38]((https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p38))  |
 
 ## Divide y venceras
 
