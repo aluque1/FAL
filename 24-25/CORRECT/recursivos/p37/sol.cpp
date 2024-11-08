@@ -4,19 +4,24 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
-struct sol{
-  int pot;
+struct sol {
   int num;
+  int pot;
 };
 
 // función que resuelve el problema
-pair<int, int> resolver(int n) {
-  if(n < 10) return {9 - n, 9 - n};
-  else return { resolver(n/10).first * 10 + 9 - (n%10), 9 - (n%10) + resolver(n/10).second * 10};
+pair<int, sol> resolver(int n) {
+  if (n < 10)
+    return {9 - n, {9 - n, 1}};
+  else {
+    pair<int, sol> s = resolver(n / 10);
+    s.second.pot *= 10;
+    s.second.num = s.second.num + (9 - (n % 10)) * s.second.pot;
+    return {s.first * 10 + 9 - (n % 10), s.second};
+  }
 }
 
 // Resuelve un caso de prueba, leyendo de la entrada la
@@ -25,9 +30,9 @@ void resuelveCaso() {
   // leer los datos de la entrada
   int n;
   cin >> n;
-  pair<int, int> sol = resolver(n);
+  pair<int, sol> s = resolver(n);
   // escribir sol
-  cout << sol.first << ' ' << sol.second << '\n';
+  cout << s.first << ' ' << s.second.num << '\n';
 }
 
 int main() {
