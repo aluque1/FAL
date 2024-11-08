@@ -45,7 +45,7 @@
 | Jugando con los dígitos de un número |  [p35](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p35)  |
 | Transformar un número decimal a binario |  [p36](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p36)  |
 | Dígitos complementarios |  [p37](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p37)  |
-| Números interesantes |  [p38]((https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p38))  |
+| Números interesantes |  [p38](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p38)  |
 
 ## Divide y venceras
 
