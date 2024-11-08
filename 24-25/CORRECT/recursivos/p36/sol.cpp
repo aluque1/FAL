@@ -2,22 +2,28 @@
 // Usuario del Juez A75
 
 #include <fstream>
-#include <iomanip>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 // función que resuelve el problema
-TipoSolucion resolver(TipoDatos datos) {}
+string resolver(int n) {
+  if (n == 0) return "0";
+  if (n == 1) return "1";
+  return resolver(n / 2) + to_string(n % 2);
+}
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
-void resuelveCaso() {
+bool resuelveCaso() {
   // leer los datos de la entrada
+  int n;
+  cin >> n;
 
-  TipoSolucion sol = resolver(datos);
+  string sol = resolver(n);
   // escribir sol
+  cout << sol << '\n';
+  return true;
 }
 
 int main() {

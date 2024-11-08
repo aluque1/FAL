@@ -2,22 +2,32 @@
 // Usuario del Juez A75
 
 #include <fstream>
-#include <iomanip>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 // función que resuelve el problema
-TipoSolucion resolver(TipoDatos datos) {}
+int resolver(int a, int b) {
+  if (b == 0) // caso base
+    return a;
+  else // caso recursivo
+    return resolver(b, (a%b));
+}
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
-void resuelveCaso() {
+bool resuelveCaso() {
   // leer los datos de la entrada
+  int a, b;
+  cin >> a >> b;
+  if (a == 0 && b == 0)
+    return false;
 
-  TipoSolucion sol = resolver(datos);
+  int sol = resolver(a, b);
+
   // escribir sol
+  cout << sol << '\n';
+  return true;
 }
 
 int main() {
@@ -29,10 +39,8 @@ int main() {
       in.rdbuf()); // save old buf and redirect std::cin to casos.txt
 #endif
 
-  int numCasos;
-  std::cin >> numCasos;
-  for (int i = 0; i < numCasos; ++i)
-    resuelveCaso();
+  while (resuelveCaso())
+    ;
 
     // Para restablecer entrada. Comentar para acepta el reto
 #ifndef DOMJUDGE // para dejar todo como estaba al principio

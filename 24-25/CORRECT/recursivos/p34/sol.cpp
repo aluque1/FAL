@@ -2,22 +2,31 @@
 // Usuario del Juez A75
 
 #include <fstream>
-#include <iomanip>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 // función que resuelve el problema
-TipoSolucion resolver(TipoDatos datos) {}
+int resolver(int n) {
+  if(n < 10) // Caso base
+    return n;
+  else // caso recursivo
+    return resolver(n/10) + n % 10;
+}
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
 void resuelveCaso() {
   // leer los datos de la entrada
-
-  TipoSolucion sol = resolver(datos);
-  // escribir sol
+  int num, numero;
+  cin >> num >> numero;
+  int suma = resolver(numero);
+  for (int i = 0; i < num; ++i)
+  {
+    cin >> numero;
+    if(resolver(numero) == suma) cout << numero << ' ';
+  }
+  cout << '\n';
 }
 
 int main() {

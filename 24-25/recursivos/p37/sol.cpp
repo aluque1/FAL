@@ -8,16 +8,26 @@
 
 using namespace std;
 
+struct sol{
+  int pot;
+  int num;
+};
+
 // función que resuelve el problema
-TipoSolucion resolver(TipoDatos datos) {}
+pair<int, int> resolver(int n) {
+  if(n < 10) return {9 - n, 9 - n};
+  else return { resolver(n/10).first * 10 + 9 - (n%10), 9 - (n%10) + resolver(n/10).second * 10};
+}
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
 void resuelveCaso() {
   // leer los datos de la entrada
-
-  TipoSolucion sol = resolver(datos);
+  int n;
+  cin >> n;
+  pair<int, int> sol = resolver(n);
   // escribir sol
+  cout << sol.first << ' ' << sol.second << '\n';
 }
 
 int main() {

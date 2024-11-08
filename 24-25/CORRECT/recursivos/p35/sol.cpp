@@ -4,20 +4,26 @@
 #include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 // función que resuelve el problema
-TipoSolucion resolver(TipoDatos datos) {}
+long resolver(long n) {
+  if(n < 10)
+    return n%2 == 0 ? (n%10 + 1) : (n%10 - 1);
+  else
+    return resolver(n/10)*10 + (n%2 == 0 ? (n%10 + 1) : (n%10 - 1));
+}
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
 void resuelveCaso() {
   // leer los datos de la entrada
-
-  TipoSolucion sol = resolver(datos);
+  long n; 
+  cin >> n;
+  long sol = resolver(n);
   // escribir sol
+  cout << sol << '\n';
 }
 
 int main() {
