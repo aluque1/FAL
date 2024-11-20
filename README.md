@@ -48,5 +48,15 @@
 | Números interesantes |  [p38](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/recursivos/p38)  |
 
 ## Divide y venceras
-
+| Nombre       | Número | 
+|--------------|------|
+| Lucky Lucke en busca del culpable | [p39](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p39)  |
+| Quebrada | [p40](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p40)  |
+| Pérfil de una curva cóncava | [p41](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p41)  |
+| Obtener el mínimo de un vector | [p42](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p42)  |
+|  | [p43](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p43)  |
+|  | [p44](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p44)  |
+|  | [p45](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p45)  |
+|  | [p46](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p46)  |
+| Viajando con el abuelo | [p47](https://github.com/aluque1/FAL/tree/main/24-25/CORRECT/dv/p47)  |
 ## Vuelta atras
