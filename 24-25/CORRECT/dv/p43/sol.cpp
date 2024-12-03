@@ -9,15 +9,36 @@
 using namespace std;
 
 // función que resuelve el problema
-TipoSolucion resolver(TipoDatos datos) {}
+char resolver(vector<char> const& v, int ini, int fin, char char_ini,
+              char char_fin) {
+  // caso base: vector unico
+  if (ini + 1 == fin) {
+    if (v[ini] == char_ini)
+      return char_fin;
+    else
+      return char_ini;
+  } else {
+    int mid = (ini + fin) / 2;
+    char char_mid = (char_ini + char_fin) / 2;
+    if(v[mid] > char_mid) return resolver(v, ini, mid, char_ini, char_mid);
+    else return resolver(v, mid, fin, char_mid, char_fin);
+  }
+}
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
 void resuelveCaso() {
   // leer los datos de la entrada
+  char char_ini, char_fin;
+  cin >> char_ini >> char_fin;
+  int ascii_fin = char_fin - char_ini;
+  vector<char> v(ascii_fin);
 
-  TipoSolucion sol = resolver(datos);
-  // escribir sol
+  for (char& elem : v) cin >> elem;
+
+  char sol = resolver(v, 0, ascii_fin, char_ini, char_fin);
+
+  cout << sol << '\n';
 }
 
 int main() {
