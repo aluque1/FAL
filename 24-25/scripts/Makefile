@@ -1,5 +1,4 @@
 # Makefile for sol.cpp
-
 # Compiler
 CXX = g++
 
