@@ -95,10 +95,10 @@ Contiene:
 | Torres de colores. Versión 1. | [p56](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p56) |
 | Torres de colores. Versión 2. | [p57](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p57) |
 | Torres de colores. Versión 3. | [p58](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p58) |
-| **not done** Luces de Navidad | [p59](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p59) |
-| **not done** Papa Noel reparte juguetes. Versión simplificada | [p60](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p60) |
-| **not done** Papa Noel reparte juguetes. Versión sin estimación | [p61](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p61) |
-| **not done** Papa Noel reparte juguetes. Versión con estimación | [p62](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p62) |
+| Luces de Navidad | [p59](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p59) |
+| **WA** Papa Noel reparte juguetes. Versión simplificada | [p60](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p60) |
+| **TLE** Papa Noel reparte juguetes. Versión sin estimación | [p61](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p61) |
+| **RE** Papa Noel reparte juguetes. Versión con estimación | [p62](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p62) |
 | **not done** Planificando las vacaciones | [p63](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p63) |
 | **not done** Compra de la semana. Versión sin poda  | [p64](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p64) |
 | **not done** Compra de la semana. Versión sin poda | [p65](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p65) |
