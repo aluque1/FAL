@@ -10,26 +10,35 @@
 
 using namespace std;
 
-bool es_valida(vector<int> const &sol, int k, vector<bool> const &visitada) {
-  if (visitada[sol[k]]) return false;
+bool es_viable(int const k, int const i, vector<bool> const &visitada,
+               int const coste_act, int const coste_min) {
+  /*
+    Una solucion es viable si se cumple que:
+    1. El coste actual no ha sobrepasado el coste minimo.
+    2. La ciudad que estamos mirando no la hemos visitado ya
+  */
+  if (coste_min < coste_act) return false;
+  if (visitada[i]) return false;
+  if (k == i) return false;
   return true;
 }
 
 // función que resuelve el problema
-void resolver(vector<int> &sol, int k, vector<vector<int>> const &coste,
-              vector<bool> &visitada, int coste_act, int coste_min) {
-  for (int i = 0; i < visitada.size(); ++i) {
+void resolver(vector<int> &sol, int k, vector<vector<int>> const &coste, vector<bool> &visitada,
+              int coste_act, int &coste_min) {
+  for (int i = 1; i < coste.size(); ++i) {
     sol[k] = i;
-    if (es_valida(sol, k, visitada)) {
-      visitada[i] = true;
-      coste_act += coste[k][i];
-      if (k == sol.size()) {
-        if (coste_act < coste_min) cout << coste_act + coste[k][0];
-      } else
+    coste_act += coste[i][k];
+    visitada[k] = true;
+    if (es_viable(k, i, visitada, coste_act, coste_min)) {
+      if (k == coste.size() - 1) {
+        coste_min = min(coste_act + coste[k][0], coste_min);
+      } else if (coste_act < coste_min)
         resolver(sol, k + 1, coste, visitada, coste_act, coste_min);
-      coste_act -= coste[k][i];
-      visitada[i] = false;
     }
+    visitada[k] = false;
+    coste_act -= coste[i][k];
+    sol[k] = 0;
   }
 }
 
@@ -49,11 +58,12 @@ bool resuelveCaso() {
     }
   }
 
-  vector<int> sol(num_ciudades);
-  int coste_min = INT_MAX;
   vector<bool> visitada(num_ciudades, false);
+  int coste_min = INT_MAX;
+  vector<int> sol(num_ciudades, 0);
   resolver(sol, 0, coste, visitada, 0, coste_min);
-  cout << '\n';
+
+  cout << coste_min << '\n';
 
   return true;
 }
