@@ -9,20 +9,29 @@
 
 using namespace std;
 
+int estimar(vector<pair<int, int>> const &objetos, int const presupuesto, int k,
+            int precio) {
+  int i = k + 1;
+  int suma = precio;
+  int superficie_posible = 0;
+
+  while (i < objetos.size() && suma + objetos[i].first <= presupuesto) {
+    suma += objetos[i].first;
+    superficie_posible += objetos[i].second;
+    ++i;
+  }
+
+  // Si no hemos llegado al final de los objetos y no hemos superado el
+  // presupuesto, calculamos la superficie posible
+  if (i < objetos.size() && suma < presupuesto) {
+    superficie_posible +=
+        (presupuesto - suma) * objetos[i].second / objetos[i].first;
+  }
+
+  return superficie_posible;
+}
+
 // función que resuelve el problema
-/*
-  Es parecido a los ejericios ya resueltos pero cambia en que existen 2
-  posibilidades en una misma llamada:
-  1. Se coge el objeto
-    a. sumamos coste
-    b. sumamos superficie
-    c. si no nos pasamos de presupuesto:
-      i. comprobamos si solucion
-      ii. llamamos a resolver cogiendo el siguiente objeto
-  2. No se coge el objeto
-      a. comprobamos si solucion
-      b. llamamos a resolver para el sigueinte objeto
-*/
 void resolver(int k, vector<pair<int, int>> const &objetos,
               int const presupuesto, int &precio, int &superficie_max,
               int &superficie_act) {
@@ -33,7 +42,8 @@ void resolver(int k, vector<pair<int, int>> const &objetos,
     if (k == objetos.size() - 1)
       superficie_max = max(superficie_act, superficie_max);
     else
-      resolver(k + 1, objetos, presupuesto, precio, superficie_max, superficie_act);
+      resolver(k + 1, objetos, presupuesto, precio, superficie_max,
+               superficie_act);
   }
   precio -= objetos[k].first;
   superficie_act -= objetos[k].second;
@@ -41,8 +51,10 @@ void resolver(int k, vector<pair<int, int>> const &objetos,
   // no cogemos el objeto que estamos planteando (k)
   if (k == objetos.size() - 1)
     superficie_max = max(superficie_act, superficie_max);
-  else
-    resolver(k + 1, objetos, presupuesto, precio, superficie_max, superficie_act);
+  else if (estimar(objetos, presupuesto, k, precio) +
+               superficie_act >= superficie_max)
+    resolver(k + 1, objetos, presupuesto, precio, superficie_max,
+             superficie_act);
 }
 
 // Resuelve un caso de prueba, leyendo de la entrada la
@@ -60,7 +72,16 @@ bool resuelveCaso() {
     cin >> coste >> superficie;
     objetos[i] = {coste, superficie};
   }
-  int precio = 0, superficie_max = INT_MIN, superficie_act = 0;
+
+  int precio = 0, superficie_max = 0, superficie_act = 0;
+  // Inizializamos la superficie maxima a una solucion posible
+  int i = 0;
+  while (i < objetos.size() && precio + objetos[i].first <= presupuesto) {
+    precio += objetos[i].first;
+    superficie_max += objetos[i].second;
+    ++i;
+  }
+  precio = 0;  // volvemos a inicializar el precio
 
   resolver(0, objetos, presupuesto, precio, superficie_max, superficie_act);
   // escribir sol

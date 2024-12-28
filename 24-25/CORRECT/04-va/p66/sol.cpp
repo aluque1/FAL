@@ -33,7 +33,8 @@ void resolver(int k, vector<pair<int, int>> const &objetos,
     if (k == objetos.size() - 1)
       superficie_max = max(superficie_act, superficie_max);
     else
-      resolver(k + 1, objetos, presupuesto, precio, superficie_max, superficie_act);
+      resolver(k + 1, objetos, presupuesto, precio, superficie_max,
+               superficie_act);
   }
   precio -= objetos[k].first;
   superficie_act -= objetos[k].second;
@@ -42,7 +43,8 @@ void resolver(int k, vector<pair<int, int>> const &objetos,
   if (k == objetos.size() - 1)
     superficie_max = max(superficie_act, superficie_max);
   else
-    resolver(k + 1, objetos, presupuesto, precio, superficie_max, superficie_act);
+    resolver(k + 1, objetos, presupuesto, precio, superficie_max,
+             superficie_act);
 }
 
 // Resuelve un caso de prueba, leyendo de la entrada la
