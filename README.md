@@ -46,13 +46,13 @@ Contiene:
 | K-emparejados  |  [p22](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p22)  |
 | Releyendo un libro. Versión 1 |  [p23](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p23)  |
 | Releyendo un libro. Versión 2 |  [p24](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p24)  |
-| **not done** Intervalos con mas positivos a la izquierda que a la derecha |  [p25](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p25)  |
-| **not done** Heidi, una nueva cabaña|  [p26](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p26) |
+| Intervalos con mas positivos a la izquierda que a la derecha |  [p25](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p25)  |
+| Heidi, una nueva cabaña|  [p26](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p26) |
 | Cenando con los amigos |  [p27](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p27) |
 | Intersección de conjuntos |  [p28]((https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p28)) |
-| **not done** K-verdadros minimo |  [p29](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p29) |
-| **not done** Viajes a Marte |  [p30](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p30) |
-| **not done** Cintas de colores |  [p31](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p31) |
+| K-verdaderos minimo |  [p29](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p29) |
+| Viajes a Marte |  [p30](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p30) |
+| Cintas de colores |  [p31](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p31) |
 | Aterrizaje de emergencia |  [p32](https://github.com/aluque1/FAL/tree/main/24-25/01-iterativos/p32) |
 
 ## Recursivos
@@ -76,11 +76,11 @@ Contiene:
 | Obtener el mínimo de un vector | [p42](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p42)  |
 | Fuga de la prisión | [p43](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p43)  |
 | El juego del bongo | [p44](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p44)  |
-| **not done** Cruce de líneas | [p45](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p45)  |
-| **not done** Exposición de arte | [p46](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p46)  |
-| **not done** Viajando con el abuelo | [p47](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
-| **not done** Números Caucásicos | [p48](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
-| **not done** Vector parcialmente ordenado | [p49](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
+| Cruce de líneas | [p45](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p45)  |
+| Exposición de arte | [p46](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p46)  |
+| Viajando con el abuelo | [p47](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
+| Números Caucásicos | [p48](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
+| Vector parcialmente ordenado | [p49](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
 | **not done** Ecológicamente equilibrado | [p50](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
 | **not done** Battlestar Galactica | [p51](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
 | **not done** Torneo de tenis | [p52](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |

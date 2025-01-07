@@ -8,42 +8,19 @@
 #include <vector>
 
 using namespace std;
-
-int estimar(vector<pair<int, int>> const &objetos, int const presupuesto, int k,
-            int precio) {
-  int i = k + 1;
-  int suma = precio;
-  int superficie_posible = 0;
-
-  while (i < objetos.size() && suma + objetos[i].first <= presupuesto) {
-    suma += objetos[i].first;
-    superficie_posible += objetos[i].second;
-    ++i;
-  }
-
-  // Si no hemos llegado al final de los objetos y no hemos superado el
-  // presupuesto, calculamos la superficie posible
-  if (i < objetos.size() && suma < presupuesto) {
-    superficie_posible +=
-        (presupuesto - suma) * objetos[i].second / objetos[i].first;
-  }
-
-  return superficie_posible;
-}
-
 // función que resuelve el problema
 void resolver(int k, vector<pair<int, int>> const &objetos,
               int const presupuesto, int &precio, int &superficie_max,
-              int &superficie_act) {
+              int &superficie_act, vector<int> const &superficie_posible) {
   // Cogemos el objeto que estamos planteando (k)
   precio += objetos[k].first;
   superficie_act += objetos[k].second;
   if (precio <= presupuesto) {
     if (k == objetos.size() - 1)
       superficie_max = max(superficie_act, superficie_max);
-    else
+    else if (superficie_act + superficie_posible[k] >= superficie_max)
       resolver(k + 1, objetos, presupuesto, precio, superficie_max,
-               superficie_act);
+               superficie_act, superficie_posible);
   }
   precio -= objetos[k].first;
   superficie_act -= objetos[k].second;
@@ -51,10 +28,9 @@ void resolver(int k, vector<pair<int, int>> const &objetos,
   // no cogemos el objeto que estamos planteando (k)
   if (k == objetos.size() - 1)
     superficie_max = max(superficie_act, superficie_max);
-  else if (estimar(objetos, presupuesto, k, precio) +
-               superficie_act >= superficie_max)
+  else if (superficie_act + superficie_posible[k] >= superficie_max)
     resolver(k + 1, objetos, presupuesto, precio, superficie_max,
-             superficie_act);
+             superficie_act, superficie_posible);
 }
 
 // Resuelve un caso de prueba, leyendo de la entrada la
@@ -83,7 +59,14 @@ bool resuelveCaso() {
   }
   precio = 0;  // volvemos a inicializar el precio
 
-  resolver(0, objetos, presupuesto, precio, superficie_max, superficie_act);
+  // Un vector que alamacena la superficie posible con los objetos restantes
+  vector<int> superficie_posible(num_objetos, 0);
+  superficie_posible[num_objetos - 1] = objetos[num_objetos - 1].second;
+  for (int i = num_objetos - 2; i >= 0; --i)
+    superficie_posible[i] = superficie_posible[i + 1] + objetos[i].second;
+
+  resolver(0, objetos, presupuesto, precio, superficie_max, superficie_act,
+           superficie_posible);
   // escribir sol
   cout << superficie_max << '\n';
 

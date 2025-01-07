@@ -1,7 +1,6 @@
 // Nombre del alumno Alejandro Luque Villegas
 // Usuario del Juez A75
 
-#include <algorithm>
 #include <fstream>
 #include <iomanip>
 #include <iostream>
@@ -10,43 +9,36 @@
 using namespace std;
 
 // función que resuelve el problema
-int resolver(vector<int> &v, int ini, int fin) {
-  if (ini == fin) return 0;
-  if (ini + 1 == fin) {
-    return 0;
+pair<int, bool> resolver(vector<int> const &v, int ini, int fin) {
+  if (ini == fin)
+    return {0, true};  // unico elem
+  else if (ini + 1 == fin) {
+    if (v[ini] % 2 == 0 && v[fin] % 2 == 0)
+      return {2, true};
+    else if (v[ini] % 2 == 0 || v[fin] % 2 == 0)
+      return {1, true};
+    else
+      return {0, true};
   } else {
-    int mid = (ini + fin - 1) / 2;
-    int iz = resolver(v, ini, mid + 1);
-    int dr = resolver(v, mid + 1, fin);
-    int aux = 0;
-    int i = ini;
-    int j = mid + 1;
-    while (i < mid && j < fin) {
-      if (v[i] > v[j]) {
-        aux += (mid - i + 1);
-        ++j;
-      } else
-        ++i;
-    }
-    sort(v.begin() + ini, v.begin() + fin);
-    return aux + iz + dr;
+    int mid = (ini + fin) / 2;
+    auto iz = resolver(v, ini, mid);
+    auto dr = resolver(v, mid + 1, fin);
+    return {iz.first + dr.first,
+            abs(iz.first - dr.first) <= 2 && iz.second && dr.second};
   }
 }
-
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
 bool resuelveCaso() {
   // leer los datos de la entrada
-  int num_naves;
-  cin >> num_naves;
-  if (!std::cin) return false;
+  int num_elems;
+  cin >> num_elems;
+  if (num_elems == 0) return false;
 
-  vector<int> v(num_naves);
+  vector<int> v(num_elems);
   for (int &elem : v) cin >> elem;
 
-  cout << resolver(v, 0, v.size()) << '\n';
-
-  // escribir sol
+  resolver(v, 0, v.size() - 1).second ? cout << "SI\n" : cout << "NO\n";
 
   return true;
 }
