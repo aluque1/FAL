@@ -10,33 +10,25 @@
 
 using namespace std;
 
-bool es_valida(vector<int> const &sol, int k, vector<bool> const escogido) {
-  if (escogido[sol[k]]) return false;
-  return true;
-}
-
-bool es_optima(int const satisfaccion_max, int const satisfaccion_act) {
-  return satisfaccion_act >= satisfaccion_max;
-}
-
 // función que resuelve el problema
 void resolver(vector<int> &sol, int &satisfaccion_max, int k,
               int &satisfaccion_act, vector<vector<int>> satisfaccion,
-              int const num_juguetes, vector<bool> &escogido) {
+              int const num_juguetes, vector<bool> &escogido, vector<int> const &acum) {
   for (int i = 0; i < num_juguetes; ++i) {
     sol[k] = i;
-    satisfaccion_act += satisfaccion[k % sol.size()][i];
-    if (es_valida(sol, k, escogido))
-      if (k == sol.size() - 1 &&
-          es_optima(satisfaccion_max, satisfaccion_act)) {
-        satisfaccion_max = satisfaccion_act;
+    if (!escogido[sol[k]]){
+      escogido[i] = true;
+      satisfaccion_act += satisfaccion[k][i];
+      if (k == sol.size() - 1){
+        if(satisfaccion_act > satisfaccion_max) satisfaccion_max = satisfaccion_act;
       } else {
-        escogido[i] = true;
+        if(satisfaccion_act + acum[k + 1] > satisfaccion_max)
         resolver(sol, satisfaccion_max, k + 1, satisfaccion_act, satisfaccion,
-                 num_juguetes, escogido);
-        escogido[i] = false;
+                 num_juguetes, escogido, acum);
       }
-    satisfaccion_act -= satisfaccion[k % sol.size()][i];
+      escogido[i] = false;
+      satisfaccion_act -= satisfaccion[k][i];
+    }
   }
 }
 
@@ -49,19 +41,31 @@ bool resuelveCaso() {
   if (!std::cin) return false;
 
   vector<int> sol(num_niños, 0);
-
   vector<vector<int>> satisfaccion(num_niños, vector<int>(num_juguetes));
-  for (auto &row : satisfaccion) {
-    for (auto &satis : row) {
-      cin >> satis;
+  
+  for(int i = 0; i < num_niños; ++i){
+    for (int j = 0; j < num_juguetes; ++j) {
+      cin >> satisfaccion[i][j];
     }
   }
 
-  int satisfaccion_max = INT_MIN;
+  vector<int> acum(num_niños);
+  for (int i = 0; i < num_niños ; ++ i){
+    int aux_max = satisfaccion[i][0];
+    for (int j = 1; j < num_juguetes ; ++ j)
+      if(aux_max < satisfaccion[i][j]) aux_max = satisfaccion[i][j];
+    acum[i] = aux_max;
+  }
+
+  for(int i = acum.size() - 1; i > 0; --i) acum[i - 1] += acum[i];
+
+  int satisfaccion_max = 0;
+  for(int i = 0; i < num_niños; ++i) satisfaccion_max += satisfaccion[i][i];
   int satisfaccion_act = 0;
+
   vector<bool> escogido(num_juguetes, false);
   resolver(sol, satisfaccion_max, 0, satisfaccion_act, satisfaccion,
-           num_juguetes, escogido);
+           num_juguetes, escogido, acum);
   cout << satisfaccion_max << '\n';
 
   return true;

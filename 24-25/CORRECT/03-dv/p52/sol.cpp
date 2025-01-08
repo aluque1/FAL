@@ -15,17 +15,21 @@ struct t_ronda {
 };
 
 // función que resuelve el problema
-t_ronda resolver(vector<string> const &datos, int ini, int fin) {
+t_ronda resolver(vector<string> const &datos, int ini, int fin, int num_rondas) {
   if (ini + 2 == fin) {
     return {1,
             datos[ini].compare("NP") != 0 && datos[fin - 1].compare("NP") != 0,
             datos[ini].compare("NP") != 0 || datos[fin - 1].compare("NP") != 0};
   } else {
     int mid = (ini + fin) / 2;
-    auto iz = resolver(datos, ini, mid);
-    auto dr = resolver(datos, mid + 1, fin);
-
-    
+    auto iz = resolver(datos, ini, mid, num_rondas);
+    auto dr = resolver(datos, mid, fin, num_rondas);
+    // Si todavia quedan rondas por jugar
+    if(iz.num_ronda + 1  <= num_rondas){
+      return {iz.num_ronda + 1, iz.num_partidos + dr.num_partidos + (iz.jugada && dr.jugada), (iz.jugada || dr.jugada)};
+    } else {
+      return {iz.num_ronda + 1, iz.num_partidos + dr.num_partidos, (iz.jugada || dr.jugada)};
+    }
   }
 }
 
@@ -41,7 +45,7 @@ bool resuelveCaso() {
   vector<string> jugadores(num_elems);
   for (string &elem : jugadores) cin >> elem;
 
-  cout << resolver(jugadores, 0, num_elems).num_partidos << '\n';
+  cout << resolver(jugadores, 0, num_elems, num_rondas).num_partidos << '\n';
   return true;
 }
 

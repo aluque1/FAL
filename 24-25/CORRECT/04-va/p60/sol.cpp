@@ -16,12 +16,12 @@ void tratar_solucion(vector<int> const &sol) {
 bool es_valida(vector<int> const &sol, int k,
                vector<string> const &tipo_jugete) {
   /*
-    Si estamos en una posicion impar del vecto y
+    Si estamos en una posicion impar del vector y
     Si el jugete de antes es mayor o igual que el siguiente, tenemos jugetes
     repetidos => se ha asignado mal
   */
-  if (k > 0 && (k % 2 != 0) && (tipo_jugete[sol[k - 1]] >= tipo_jugete[sol[k]]))
-    return false;
+  if(k % 2 != 0 && tipo_jugete[sol[k - 1]] == tipo_jugete[sol[k]]) return false;
+  if(k % 2 != 0 && sol[k - 1] > sol[k]) return false;
   return true;
 }
 

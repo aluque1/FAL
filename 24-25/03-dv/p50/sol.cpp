@@ -8,10 +8,10 @@
 
 using namespace std;
 
-using matrix = vector<vector<int>>
+using matrix = vector<vector<int>>;
 
 // función que resuelve el problema
-in resolver(matrix const &v, int ini, int fin) {}
+int resolver(matrix const &v, int ini, int fin) {}
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
@@ -27,7 +27,7 @@ void resuelveCaso() {
     }
   }
 
-  TipoSolucion sol = resolver(v);
+  int sol = resolver(v, 0, v.size() - 1);
   // escribir sol
 }
 

@@ -31,21 +31,21 @@ void resolver(vector<int> &sol, int &satisfaccion_max, int k,
               vector<int> const &acumulados) {
   for (int i = 0; i < num_juguetes; ++i) {
     sol[k] = i;
-    satisfaccion_act += satisfaccion[k % sol.size()][i];
     if (es_valida(sol, k, escogido)) {
-      if (k == sol.size() - 1 &&
-          es_optima(satisfaccion_max, satisfaccion_act)) {
-        satisfaccion_max = satisfaccion_act;
+      satisfaccion_act += satisfaccion[k][i];
+      escogido[i] = true;
+      if (k == sol.size() - 1){
+        if(es_optima(satisfaccion_max, satisfaccion_act))
+          satisfaccion_max = satisfaccion_act;
       } else {
-        escogido[i] = true;
         if (es_prometedora(satisfaccion_act, acumulados, satisfaccion_max, k)) {
           resolver(sol, satisfaccion_max, k + 1, satisfaccion_act, satisfaccion,
                    num_juguetes, escogido, acumulados);
         }
-        escogido[i] = false;
       }
-    }
-    satisfaccion_act -= satisfaccion[k % sol.size()][i];
+      escogido[i] = false;
+      satisfaccion_act -= satisfaccion[k][i];
+    } 
   }
 }
 
