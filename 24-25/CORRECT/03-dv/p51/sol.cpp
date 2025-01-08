@@ -12,26 +12,42 @@ using namespace std;
 // función que resuelve el problema
 int resolver(vector<int> &v, int ini, int fin) {
   if (ini == fin) return 0;
-  if (ini + 1 == fin) {
-    return 0;
-  } else {
-    int mid = (ini + fin - 1) / 2;
-    int iz = resolver(v, ini, mid + 1);
-    int dr = resolver(v, mid + 1, fin);
-    int aux = 0;
+  else if (ini + 1 == fin){
+    if(v[ini] > v[fin]){
+      swap(v[ini], v[fin]);
+      return 1;
+    } 
+    else 
+      return 0;
+  }else {
+    int mid = (ini + fin) / 2;
+    int iz = resolver(v, ini, mid);
+    int dr = resolver(v, mid, fin);
+
     int i = ini;
-    int j = mid + 1;
+    int j = mid;
+    int inversiones = 0;
+    // comparamos ambas mitades
     while (i < mid && j < fin) {
-      if (v[i] > v[j]) {
-        aux += (mid - i + 1);
+      if (v[i] > v[j]) {  // no estan ordenadas
+        inversiones += mid - i;
         ++j;
-      } else
+      } else              // estan ordenadas
         ++i;
     }
-    sort(v.begin() + ini, v.begin() + fin);
-    return aux + iz + dr;
+
+    // ordenamos 
+    vector<int> aux(fin - ini);
+
+    merge((v.begin() + ini), (v.begin() + mid), (v.begin() + mid), (v.begin() + fin), aux.begin());
+
+    for(int i = 0; i < aux.size(); ++i)
+      v[ini + i] = aux[i];
+
+    return inversiones + iz + dr;
   }
 }
+
 
 // Resuelve un caso de prueba, leyendo de la entrada la
 // configuración, y escribiendo la respuesta
@@ -44,7 +60,7 @@ bool resuelveCaso() {
   vector<int> v(num_naves);
   for (int &elem : v) cin >> elem;
 
-  cout << resolver(v, 0, v.size()) << '\n';
+  cout << resolver(v, 0, v.size() - 1) << '\n';
 
   // escribir sol
 

@@ -81,8 +81,8 @@ Contiene:
 | Viajando con el abuelo | [p47](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
 | Números Caucásicos | [p48](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
 | Vector parcialmente ordenado | [p49](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
-| **not done** Ecológicamente equilibrado | [p50](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
-| **not done** Battlestar Galactica | [p51](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
+| Ecológicamente equilibrado | [p50](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
+| Battlestar Galactica | [p51](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
 | Torneo de tenis | [p52](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
 | Elemento mayoritario | [p53](https://github.com/aluque1/FAL/tree/main/24-25/03-dv/p47)  |
 
@@ -99,13 +99,13 @@ Contiene:
 | Papa Noel reparte juguetes. Versión simplificada | [p60](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p60) |
 | Papa Noel reparte juguetes. Versión sin estimación | [p61](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p61) |
 | Papa Noel reparte juguetes. Versión con estimación | [p62](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p62) |
-| **not done** Planificando las vacaciones | [p63](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p63) |
+| Planificando las vacaciones | [p63](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p63) |
 | Compra de la semana. Versión sin poda  | [p64](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p64) |
 | Compra de la semana. Versión con poda | [p65](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p65) |
 | Adornando la casa por Navidad. Versión sin estimación | [p66](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p66) |
 | Adornando la casa por Navidad. Versión con estimación | [p67](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p67) |
-| **not done** Escuchando música | [p68](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p68) |
+| Escuchando música | [p68](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p68) |
 | **not done** ¿Por qué el hada mala no fue invitada al convite? | [p69](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p69) |
-| **not done** Travesía en canoa. | [p70](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p70) |
+| **not done** Travesía en canoa | [p70](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p70) |
 | **not done** Pasarela Neptuno | [p71](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p71) |
 | **not done** Sumas y restas | [p72](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p72) |
