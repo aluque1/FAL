@@ -1,6 +1,6 @@
 # Organización del repositorio
 
-Hasta que no acabe el curso los siguientes links no funcionaran bien.
+Todos los ejercicios han dado un veredicto CORRECT en el JUEZ de DOMjudge
 
 El repositorio esta dividido en 4 carpetas.
 
@@ -16,7 +16,7 @@ En la carpeta de [scripts](https://github.com/aluque1/FAL/tree/main/24-25/script
 Contiene:
 
 - [runner.sh](https://github.com/aluque1/FAL/tree/main/24-25/scripts/runner.sh) que ejecuta un makefile, redirecciona los archivos de entrada y salida y compara la salida del programa con la salida esperada. Usa colordiff para mostrar la diferencia de manera mas visual.
-- [prepEx.sh](https://github.com/aluque1/FAL/tree/main/24-25/scripts/prepEx.sh) y [folders.sh](https://github.com/aluque1/FAL/tree/main/24-25/scripts/folders.sh) ayuda a preparae los ejercicos con los archivos descargados del juez. Crea una carpeta con el nombre que se le haya pasado como primer parametro. Mueve los archivos de la carpeta de Downloads a la carpeta deseada y despues extrae los casos de prueba, crea los archivos y renombra para que todo funciones con el runner.sh. Sigue el formato que he seguido usando los numeros de problemas de manera que estaban puesta en el juez.
+- [prepEx.sh](https://github.com/aluque1/FAL/tree/main/24-25/scripts/prepEx.sh) y [folders.sh](https://github.com/aluque1/FAL/tree/main/24-25/scripts/folders.sh) ayuda a preparar los ejercicos con los archivos descargados del juez. Crea una carpeta con el nombre que se le haya pasado como primer parametro. Mueve los archivos de la carpeta de Downloads a la carpeta deseada y despues extrae los casos de prueba, crea los archivos y renombra para que todo funciones con el runner.sh.
 
 ## Iterativos
 
@@ -105,7 +105,3 @@ Contiene:
 | Adornando la casa por Navidad. Versión sin estimación | [p66](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p66) |
 | Adornando la casa por Navidad. Versión con estimación | [p67](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p67) |
 | Escuchando música | [p68](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p68) |
-| **not done** ¿Por qué el hada mala no fue invitada al convite? | [p69](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p69) |
-| **not done** Travesía en canoa | [p70](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p70) |
-| **not done** Pasarela Neptuno | [p71](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p71) |
-| **not done** Sumas y restas | [p72](https://github.com/aluque1/FAL/tree/main/24-25/04-va/p72) |
